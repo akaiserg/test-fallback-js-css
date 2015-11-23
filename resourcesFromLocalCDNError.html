@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>FallBack Test</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/bootstrap/3.3.5/css/bootstrap.min.cssss" rel="stylesheet">
+
+</head>
+<body>
+<div class="container text-center">
+    <div class="jumbotron">
+        <h3>Resources from CDN are not  correctly  gotten.</h3>
+        <hr>
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3 well">
+                <input id="btn_id"  class="btn btn-primary btn-block" type="button" value=" Click">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12  ">
+                <em id="txt_id">loading..</em>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+<script  type="text/javascript"  src="https://cdn.jsdelivr.net/jquery/3.0.0-alpha1/jquery.min.jsss"></script>
+<script  type="text/javascript"  src="https://cdn.jsdelivr.net/modernizr/2.8.3/modernizr.min.jsss"></script>
+<script type="text/javascript"  src="fallback/FallBackModule.js"></script>
+
+
+
+<script type="text/javascript">
+
+    var cssList=[{cdn:"https://cdn.jsdelivr.net/bootstrap/3.3.5/css/bootstrap.min.css",local:"lib/bootstrap_335/css/bootstrap.min.css"}];
+    FallBackModule.checkCss(cssList);
+    var jsList=[{object:"jQuery",local:"lib/jquery_300/jquery.min.js"},{object:"Modernizr",local:"lib/modernizr_283/modernizr.min.js"}];
+    FallBackModule.checkJs(jsList);
+    //Initialize  js handlers
+    window.onload = function(){
+
+        $("#txt_id").html("Loaded");
+        $("#btn_id").click(function(){
+            $("#txt_id").html("Click!");
+        });
+
+    }
+
+
+</script>
